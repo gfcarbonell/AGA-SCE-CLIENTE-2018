@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGA-SCE-CLIENTE", "AGA-SCE-CLIENTE\AGA-SCE-CLIENTE.csproj", "{4758BF5C-4021-4B0B-AEC5-3071965B1B7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4758BF5C-4021-4B0B-AEC5-3071965B1B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4758BF5C-4021-4B0B-AEC5-3071965B1B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4758BF5C-4021-4B0B-AEC5-3071965B1B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4758BF5C-4021-4B0B-AEC5-3071965B1B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {352D8F95-DDBE-4592-AA9D-E9DDBF435A50}
+	EndGlobalSection
+EndGlobal
