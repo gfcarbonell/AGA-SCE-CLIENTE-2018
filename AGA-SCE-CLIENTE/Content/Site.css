@@ -1,24 +1,59 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿figure, p{
+    padding:0;
+    margin:0;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 450px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.deth-1 {
+    box-shadow: 1px 1px 4px #888888;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.bg-yellow {
+    background: #fcfcd2;
+}
+.bg-gray {
+    background: #e9ecef;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+.container-table {
+    height: 350px;
+    overflow-y: auto;
+}
+
+#loader-4 span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #7cb342;
+    margin: 35px 5px;
+    opacity: 0;
+}
+
+#loader-4 span:nth-child(1) {
+    animation: opacitychange 1s ease-in-out infinite;
+}
+
+#loader-4 span:nth-child(2) {
+    animation: opacitychange 1s ease-in-out 0.33s infinite;
+}
+
+#loader-4 span:nth-child(3) {
+    animation: opacitychange 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes opacitychange {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
 }

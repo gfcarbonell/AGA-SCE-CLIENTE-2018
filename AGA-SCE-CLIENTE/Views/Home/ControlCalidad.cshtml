@@ -1,0 +1,474 @@
+﻿@{
+    ViewBag.Title = "";
+}
+<div class="control">
+    <div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                <div class="bg-danger">
+                    <h5  class="text-center text-white">
+                        PackingLists
+                    </h5>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9 col-lg-9">
+                <div class="bg-white">
+                    <h5 class="text-left">
+                        Lista Documentos
+                    </h5>
+                </div>
+                <div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead class="bg-white">
+                                <tr class="d-flex small">
+                                    <th class="col-1 text-center">#</th>
+                                    <th class="col-4 text-left">Nombre</th>
+                                    <th class="col-4 text-left">Tipo Documento</th>
+                                    <th class="col-2 text-left">Tamaño</th>
+                                    <th class="col-1 text-center">Descargar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="d-flex small">
+                                    <td class="col-1 text-center">1</td>
+                                    <td class="col-4 text-left d-flex align-items-center">
+                                        <img src="~/Medias/images/ico/PDF.ico" width="23" height="23" />
+                                        <p class="text-left px-2">
+                                            Agricola Andrea 1
+                                        </p>
+                                    </td>
+                                    <td class="col-4 text-left">mdo</td>
+                                    <td class="col-2 text-left">3M.B.</td>
+                                    <td class="col-1 text-center">
+                                        <a class="icon-download2 ">
+
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="d-flex small">
+                                    <td class="col-1 text-center">1</td>
+                                    <td class="col-4 text-left d-flex align-items-center">
+                                        <img src="~/Medias/images/ico/Word.ico" width="23" height="23" />
+                                        <p class="text-left px-2">
+                                            Agricola Andrea 2
+                                        </p>
+                                    </td>
+                                    <td class="col-4 text-left">mdo</td>
+                                    <td class="col-2 text-left">3M.B.</td>
+                                    <td class="col-1 text-center">
+                                        <a class="icon-download2 ">
+
+                                        </a>
+                                    </td>
+                                </tr>
+                      
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*<div>
+    <form role="form" method="get" class="form" data-toggle="validator" id="form-search">
+        <div class="form-row">
+            <div class="form-group col-sm-6 col-md-3">
+                <label for="bell">Campaña</label>
+                <select class="form-control selectpicker" data-live-search="true" id="bell" name="bell" data-size="5"></select>
+                <p class="text-danger" id="error-bell"></p>
+            </div>
+            <div class="form-group col-sm-6 col-md-2">
+                <label for="numberPackingList">N° PackingList</label>
+                <input class="form-control" type="text" name="numberPackingList" id="numberPackingList" />
+                <p class="text-danger" id="error-numberPackingList"></p>
+            </div>
+            <div class="form-group col-sm-12 col-md-2">
+                <label for="broker">Cliente/Broker</label>
+                <input class="form-control" type="text" name="broker" id="broker" />
+                <p class="text-danger" id="error-broker"></p>
+            </div>
+            <div class="form-group col-sm-6 col-md-2">
+                <label for="start-date">Fecha Inicial</label>
+                <input class="form-control" type="date" name="start-date" id="start-date" required />
+            </div>
+            <div class="form-group col-sm-6 col-md-2">
+                <label for="end-date">Fecha Final</label>
+                <input class="form-control" type="date" name="end-date" id="end-date" required />
+            </div>
+            <div class="form-group col-sm-6 col-md-1">
+                <label class="text-center">.:: Click ::.</label>
+                <input class="form-control bg-success text-white" type="submit" name="search" id="search" value="buscar"/>
+            </div>
+        </div>
+    </form>
+   
+</div>
+
+<div class="container row panel-view">
+    <div class="col-lg-7 panel-left">
+        <div class="">
+            <div class="table-responsive table-wrapper-scroll-y">
+                <table class="table table-hover" id="embarques">
+                    <thead class="thead-light text-white">
+                        <tr class="d-flex small">
+                            <th class="col-1 text-center">#</th>
+                            <th class="col-3 text-left">N° PackingList</th>
+                            <th class="col-2 text-left">Fecha Embarque</th>
+                            <th class="col-2 text-left">Fecha Arribo</th>
+                            <th class="col-2 text-center">Cantidad</th>
+                            <th class="col-2 text-center">Carpeta</th>
+                        </tr>
+                    </thead>
+                    <tbody id="embarques-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5 panel-rigth">
+        <div class="">
+            <div class="table-responsive table-wrapper-scroll-y">
+                <table class="table table-hover" id="instrucciones-documentos">
+                    <thead class="thead-light text-white">
+                        <tr class="d-flex small">
+                            <th class="col-1 text-center">#</th>
+                            <th class="col-3 text-center">Documento</th>
+                            <th class="col-3 left-center">Tipo Documento</th>
+                            <th class="col-3 left-center">Nombre Archivo</th>
+                            <th class="col-2 left-center">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="instrucciones-documentos-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>*@
+@section scripts {
+
+    <script src="~/Scripts/index.js"></script>
+    <script src="~/Scripts/utils/utils.js"></script>
+    <script type="text/javascript">
+        $(document).ready(($) => {
+            //Icons Server Local
+            var WordIcon = "@Url.Content("~/Medias/Ico/Word.ico")";
+            var ExcelIcon = "@Url.Content("~/Medias/Ico/Excel.ico")";
+            var PowerPointIcon = "@Url.Content("~/Medias/Ico/PowerPoint.ico")";
+            var PDFIcon = "@Url.Content("~/Medias/Ico/PDF.ico")";
+            var TxtIcon = "@Url.Content("~/Medias/Ico/Bloc.ico")";
+            var WinRarIcon = "@Url.Content("~/Medias/Ico/WinRar.ico")";
+            var folderIcon = "@Url.Content("~/Medias/Ico/Folder.ico")";
+
+            //Date Default 
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) { dd = `0${dd}` }
+            if (mm < 10) { mm = `0${mm}` }
+
+            today = `${yyyy}-${mm}-${dd}`;
+
+            $(`#start-date`).val("2018-01-01");
+            $(`#end-date`).val(today);
+
+            //Load Campaña
+            axios.get(`${URLSERVER}/SCECampana/Index`, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (response.data.length > 0) {
+                    response.data.map((item, index) => {
+                        option = `<option data-tokens=${item.IdCampana} value=${item.IdCampana}> ${item.Descripcion}</option>`;
+                        $(`#bell`).append(option);
+                    })
+                }
+                else {
+
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+            //Click Buscar
+            $("#form-search").submit(e => {
+                e.preventDefault();
+                let sd = $(`#start-date`).val();
+                let ed = $(`#end-date`).val();
+                let IdCampana = $(`#bell`).val();
+                let IdSucursal = "002";
+                let Cliente = $(`#broker`).val();
+                let NroPackingList = $(`#numberPackingList`).val();
+
+                let data = JSON.stringify({
+                    FechaInicio: sd,
+                    FechaFinal: ed,
+                    IdCampana: IdCampana,
+                    IdSucursal: IdSucursal,
+                    Cliente: Cliente,
+                    NroPackingList: NroPackingList
+                })
+
+                axios.get(`${URLSERVER}/SCEEmbarque/`, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    params: {
+                        FechaInicio: JSON.parse(data).FechaInicio,
+                        FechaFinal: JSON.parse(data).FechaFinal,
+                        IdCampana: JSON.parse(data).IdCampana,
+                        IdSucursal: JSON.parse(data).IdSucursal,
+                        Cliente: JSON.parse(data).Cliente,
+                        NroPackingList: JSON.parse(data).NroPackingList
+                    }
+                })
+                .then(response => {
+
+                    if (response.data.length > 0) {
+                        $(`#embarques-body`).empty();
+                        response.data.map((item, index) => {
+                            let fechaEmbarque = formatDateTimeCSharpToJavascript(item.FechaEmbarque).split("T")[0];
+                            let fechaArribo = formatDateTimeCSharpToJavascript(item.FechaArribo).split("T")[0];
+                            let tr = $(`
+                            <tr class="d-flex small" id="${item.NroPackingList}">
+                                <td class="col-1 text-center"> ${index + 1}</td>
+                                <td class="col-3 text-left">${item.NroPackingList}</td>
+                                <td class="col-2 text-left">${fechaEmbarque}</td>
+                                <td class="col-2 text-left">${fechaArribo}</td>
+                                <td class="col-2 text-center">${item.Cantidad}</td>
+                                <td class="col-2 text-center">
+                                    <figure class="container">
+                                        <img src="${folderIcon}" width="35" height="35" />
+                                    </figure>
+                                </td>
+                            </tr>`);
+
+
+                            tr.bind("click", (e) => {
+                                let NroPackingList = $(e.target).parent().attr("id");
+                                let data = JSON.stringify({
+                                    NroPackingList: NroPackingList
+                                });
+
+                                //Get Documents
+                                axios.get(`${URLSERVER}/SCEInstruccionDocumento/GetByNroPackingList/`, {
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json',
+                                    },
+                                    params: {
+                                        NroPackingList: JSON.parse(data).NroPackingList
+                                    }
+                                })
+                                .then(response => {
+
+                                    $(`#instrucciones-documentos-body`).empty();
+                                    if (response.data.length > 0) {
+
+                                        response.data.map((item, index) => {
+                                            let extension = item.NombreArchivo.split(".").pop();
+
+                                            let icon = null;
+                                            //Get Icon File
+                                            if (extension === "docx" || extension === "doc") {
+                                                icon = WordIcon;
+                                            }
+                                            else if (extension === "xlsx" || extension === "xls") {
+                                                icon = ExcelIcon;
+                                            }
+                                            else if (extension === "pptx" || extension === "ppt") {
+                                                icon = PowerPointIcon;
+                                            }
+                                            else if (extension === "pdf") {
+                                                icon = PDFIcon;
+                                            }
+                                            else if (extension === "txt") {
+                                                icon = TxtIcon;
+                                            }
+                                            else if (extension === "rar") {
+                                                icon = WinRarIcon;
+                                            }
+                                            let tr = $(`
+                                            <tr class="d-flex small" id="${item.IdDocumento}">
+                                                <td class="col-1 text-center">${index+1}</td>
+                                                <td class="col-3 text-center">
+                                                    <figure class="container">
+                                                        <img src="${icon}" width="35" height="35" />
+                                                    </figure>
+                                                </td>
+                                                <td class="col-3 text-left">${item.SCETipoDocumento.Descripcion}</td>
+                                                <td class="col-3 text-left" id="file-name" >${item.NombreArchivo}</td>
+                                                <td class="col-2 text-left"> <a href="#" id="${item.SCEArchivo.IdArchivo}">Descargar</a> </td>
+                                            </tr>`);
+                                            //Download File
+                                            tr.children("td").children("a").bind("click", (e) => {
+                                                event.preventDefault();
+                                                let data = JSON.stringify({
+                                                    IdArchivo: e.target.id
+                                                });
+
+                                                axios.get(`${URLSERVER}/SCEArchivo/GetById`, {
+                                                    headers: {
+                                                        'Accept': 'application/json',
+                                                        'Content-Type': 'application/json',
+                                                    },
+                                                    params: {
+                                                        IdArchivo: JSON.parse(data).IdArchivo
+                                                    }
+                                                })
+                                                .then(response => {
+                                                    let filename = $(e.target).parent().parent().children("#file-name").text().trim();
+                                                    let byteArray = new Uint8Array(response.data.DocumentoData);
+                                                    let a = window.document.createElement('a');
+                                                    a.href = URL.createObjectURL(new Blob([byteArray], { type: 'application/octet-stream' }));
+                                    
+                                                    a.download = filename;
+                                                    document.body.appendChild(a)
+                                                    a.click();
+                                                    // Remove anchor from body
+                                                    document.body.removeChild(a)
+
+                                                    //let iFrame = document.createElement('iframe');             
+                                                    //iFrame.setAttribute('src', `https://drive.google.com/viewerng/viewer?url=${a.href}&embedded=true`);
+                                                    //iFrame.setAttribute('style', 'width:500px; height:700px;');
+                                                    //$(`#view-document`).append(iFrame);
+                                                })
+                                                .catch(error => {
+                                                    console.log(error);
+                                                });
+                                            })
+                                            $("#instrucciones-documentos-body").append(tr);
+                                        })
+
+                                    }
+                                    else {
+
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+                            });
+
+                            $(`#embarques-body`).append(tr);
+                        })
+                    }
+                    else {
+
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            });
+
+
+            function download(text, name, type) {
+                var a = document.getElementById("a");
+                var file = new Blob([text], { type: type });
+                a.href = URL.createObjectURL(file);
+                a.download = name;
+            }
+            ////Click Embarque Nro PackingList
+            //$(`#${nroPackingList}`).click((e) => {
+
+            //    let data = JSON.stringify({
+            //        NroPackingList: "CRZ--UVA-001/2017"
+            //    })
+
+            //    axios.get(`${URL}/SCEInstruccionDocumento/GetByNroPackingList`, {
+            //        headers: {
+            //            'Accept': 'application/json',
+            //            'Content-Type': 'application/json',
+            //        },
+            //        params: {
+            //            NroPackingList: JSON.parse(data).NroPackingList,
+            //        }
+            //    })
+            //    .then(response => {
+            //        $("#instrucciones-documentos-body").empty();
+
+            //        response.data.map((item, index) => {
+            //            let extension = item.NombreArchivo.split(".").pop();
+            //            let icon = null;
+            //            if (extension === "docx" || extension === "doc") {
+            //                icon = WordIcon;
+            //            }
+            //            else if (extension === "xlsx" || extension === "xls") {
+            //                icon = ExcelIcon;
+            //            }
+            //            else if (extension === "pptx" || extension === "ppt") {
+            //                icon = PowerPointIcon;
+            //            }
+            //            else if (extension === "pdf") {
+            //                icon = PDFIcon;
+            //            }
+            //            else if (extension === "txt") {
+            //                icon = TxtIcon;
+            //            }
+            //            else if (extension === "rar") {
+            //                icon = WinRarIcon;
+            //            }
+
+            //            const tr = $(`
+            //                <tr class="d-flex" id="${item.IdDocumento}">
+            //                    <td class="col-1 text-center">2</td>
+            //                    <td class="col-3 text-center">
+            //                        <figure class="container">
+            //                            <img src="${icon}" width="35" height="35" />
+            //                        </figure>
+            //                    </td>
+            //                    <td class="col-3 text-left">${item.SCETipoDocumento.Descripcion}</td>
+            //                    <td class="col-3 text-left">${item.NombreArchivo}</td>
+            //                    <td class="col-2 text-left"> <a href="#" id="${item.SCEArchivo.IdArchivo}">Descargar</a> </td>
+            //                </tr>
+            //            `);
+            //            tr.children("td").children("a").bind("click", (event) => {
+            //                event.preventDefault();
+            //                let data = JSON.stringify({
+            //                    IdArchivo: event.target.id
+            //                });
+            //                axios.get(`${URL}/SCEArchivo/GetById`, {
+            //                    headers: {
+            //                        'Accept': 'application/json',
+            //                        'Content-Type': 'application/json',
+            //                    },
+            //                    params: {
+            //                        IdArchivo: JSON.parse(data).IdArchivo
+            //                    }
+            //                })
+            //                .then(response => {
+
+            //                    let byteArray = new Uint8Array(response.data.DocumentoData);
+            //                    let a = window.document.createElement('a');
+            //                    a.href = window.URL.createObjectURL(new Blob([byteArray], { type: 'application/octet-stream' }));
+            //                    a.download = item.NombreArchivo;
+            //                    document.body.appendChild(a)
+            //                    a.click();
+            //                    // Remove anchor from body
+            //                    document.body.removeChild(a)
+            //                })
+            //            });
+            //            $("#instrucciones-documentos-body").append(tr);
+            //        });
+            //    })
+            //    .catch(error => {
+            //        console.log(error);
+            //    });
+            //});
+
+
+        });
+    </script>
+}

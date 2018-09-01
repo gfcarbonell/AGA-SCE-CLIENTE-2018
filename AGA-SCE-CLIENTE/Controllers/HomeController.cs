@@ -13,6 +13,22 @@ namespace AGA_SCE_CLIENTE.Controllers
             return View();
         }
 
+        public ActionResult ControlCalidad()
+        {
+          
+
+            return View();
+        }
+
+        public ActionResult ProyeccionComercial()
+        {
+            return View();
+        }
+        public ActionResult Proyectar()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
