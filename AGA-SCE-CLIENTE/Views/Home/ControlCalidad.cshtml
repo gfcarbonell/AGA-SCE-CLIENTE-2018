@@ -1,71 +1,123 @@
 ﻿@{
     ViewBag.Title = "";
 }
-<div class="control">
-    <div>
-        <div class="row">
-            <div class="col-sm-12 col-md-3 col-lg-3">
-                <div class="bg-danger">
-                    <h5  class="text-center text-white">
-                        PackingLists
-                    </h5>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-9 col-lg-9">
-                <div class="bg-white">
-                    <h5 class="text-left">
-                        Lista Documentos
-                    </h5>
-                </div>
-                <div>
-                    <div class="table-responsive">
-                        <table class="table table-hover table-striped">
-                            <thead class="bg-white">
-                                <tr class="d-flex small">
-                                    <th class="col-1 text-center">#</th>
-                                    <th class="col-4 text-left">Nombre</th>
-                                    <th class="col-4 text-left">Tipo Documento</th>
-                                    <th class="col-2 text-left">Tamaño</th>
-                                    <th class="col-1 text-center">Descargar</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white">
-                                <tr class="d-flex small">
-                                    <td class="col-1 text-center">1</td>
-                                    <td class="col-4 text-left d-flex align-items-center">
-                                        <img src="~/Medias/images/ico/PDF.ico" width="23" height="23" />
-                                        <p class="text-left px-2">
-                                            Agricola Andrea 1
-                                        </p>
-                                    </td>
-                                    <td class="col-4 text-left">mdo</td>
-                                    <td class="col-2 text-left">3M.B.</td>
-                                    <td class="col-1 text-center">
-                                        <a class="icon-download2 ">
+<div class="control-calidad">
+    <article class="bg-url-1 ">
+        <div class="bg-light-black px-2">
+            <div class="">
+                <div class="welcome-red">
+                    <h3 class="sub-title text-white text-shadow-black">
+                        Realizar búsqueda
+                    </h3>
+                    <p class="welcome-sub-underline">
+                    </p>
+                    <p class="welcome-underline">
 
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="d-flex small">
-                                    <td class="col-1 text-center">1</td>
-                                    <td class="col-4 text-left d-flex align-items-center">
-                                        <img src="~/Medias/images/ico/Word.ico" width="23" height="23" />
-                                        <p class="text-left px-2">
-                                            Agricola Andrea 2
-                                        </p>
-                                    </td>
-                                    <td class="col-4 text-left">mdo</td>
-                                    <td class="col-2 text-left">3M.B.</td>
-                                    <td class="col-1 text-center">
-                                        <a class="icon-download2 ">
+                    </p>
+                </div>
+                <form role="form" data-toggle="validator" id="form-search">
+                    <div class="form-row">
+                        <div class="form-group col-sm-12 col-md-6 col-lg-3">
+                            <label class="col-form-label text-white text-shadow-black" for="end-date">Campaña</label>
+                            <select class="form-control form-control-sm selectpicker" data-live-search="true" id="bell" name="bell" data-size="5" required></select>
+                            <p class="text-danger" id="error-bell"></p>
+                        </div>
 
-                                        </a>
-                                    </td>
-                                </tr>
-                      
-                            </tbody>
-                        </table>
+                        <div class="form-group col-sm-12 col-md-6 col-lg-3">
+                            <label class="col-form-label text-white text-shadow-black" for="end-date">N° PackingList</label>
+                            <input class="form-control form-control-sm" type="text" name="nro-packing-list" id="nro-packing-list"/>
+                            <p class="text-danger" id="error-nro-packing-list"></p>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-md-6 col-lg-2">
+                            <label class="col-form-label text-white text-shadow-black" for="start-date">Fecha Inicial</label>
+                            <input class="form-control form-control-sm" type="date" name="start-date" id="start-date" required />
+                            <p class="text-danger" id="error-start-date"></p>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-6 col-lg-2">
+                            <label class="col-form-label text-white text-shadow-black" for="end-date">Fecha Final</label>
+                            <input class="form-control form-control-sm" type="date" name="end-date" id="end-date" required />
+                            <p class="text-danger" id="error-end-date"></p>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-6 col-lg-2">
+                            <p class="text-white text-shadow-black text-center">
+                                <label class="col-form-label" for="search">
+                                    Haz click aquí
+                                </label>
+                            </p>
+                            <input class="form-control form-control-sm bg-light-green text-white text-shadow-black" type="submit" name="search" id="search" value="Buscar" />
+                        </div>
+
                     </div>
+                </form>
+            </div>
+        </div>
+    </article>
+    <div class="row">
+        <div class="packing-lists col-sm-12 col-md-4 col-lg-3 border-right border-light">
+            <div class="packing-lists-header bg-danger border-bottom border-danger">
+                <h5 class="text-center text-white text-shadow-black">
+                    <span class="icon-book2"></span> Lista de PackingList
+                </h5>
+            </div>
+            <div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-fixed">
+                        <thead class="bg-white">
+                            <tr class="d-flex small">
+                                <th class="col-2 text-center">#</th>
+                                <th class="col-6 text-left">N° PackingList</th>
+                                <th class="col-4 text-center"> Detalle</th>
+                            </tr>
+                        </thead>
+                        <tbody id="embark-body">
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="container-modal" id="embark-details">
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="documents col-sm-12 col-md-8 col-lg-9">
+            <div class="documents-header bg-white border-bottom border-secondary">
+                <h5 class="text-left">
+                    Lista de Documentos
+                </h5>
+            </div>
+            <div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-fixed">
+                        <thead class="bg-white">
+                            <tr class="d-flex small">
+                                <th class="col-1 text-center">#</th>
+                                <th class="col-4 text-left">Nombre</th>
+                                <th class="col-4 text-left">Tipo Documento</th>
+                                <th class="col-1 text-left">Tamaño</th>
+                                <th class="col-2 text-center">Descargar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="embark-documents-body">
+                            @*<tr class="d-flex small text-hover">
+                                <td class="col-1 text-center">1</td>
+                                <td class="col-4 text-left d-flex align-items-center">
+                                    <img src="~/Medias/images/ico/PDF.ico" width="19" height="19" />
+                                    <p class="text-left px-2">
+                                        Agricola Andrea 1
+                                    </p>
+                                </td>
+                                <td class="col-4 text-left">mdo</td>
+                                <td class="col-1 text-left">3 M.B.</td>
+                                <td class="col-2 text-center">
+                                    <a class="icon-download2 font-weight-bold">
+
+                                    </a>
+                                </td>
+                            </tr>*@
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -73,83 +125,6 @@
 </div>
 
 
-
-
-
-@*<div>
-    <form role="form" method="get" class="form" data-toggle="validator" id="form-search">
-        <div class="form-row">
-            <div class="form-group col-sm-6 col-md-3">
-                <label for="bell">Campaña</label>
-                <select class="form-control selectpicker" data-live-search="true" id="bell" name="bell" data-size="5"></select>
-                <p class="text-danger" id="error-bell"></p>
-            </div>
-            <div class="form-group col-sm-6 col-md-2">
-                <label for="numberPackingList">N° PackingList</label>
-                <input class="form-control" type="text" name="numberPackingList" id="numberPackingList" />
-                <p class="text-danger" id="error-numberPackingList"></p>
-            </div>
-            <div class="form-group col-sm-12 col-md-2">
-                <label for="broker">Cliente/Broker</label>
-                <input class="form-control" type="text" name="broker" id="broker" />
-                <p class="text-danger" id="error-broker"></p>
-            </div>
-            <div class="form-group col-sm-6 col-md-2">
-                <label for="start-date">Fecha Inicial</label>
-                <input class="form-control" type="date" name="start-date" id="start-date" required />
-            </div>
-            <div class="form-group col-sm-6 col-md-2">
-                <label for="end-date">Fecha Final</label>
-                <input class="form-control" type="date" name="end-date" id="end-date" required />
-            </div>
-            <div class="form-group col-sm-6 col-md-1">
-                <label class="text-center">.:: Click ::.</label>
-                <input class="form-control bg-success text-white" type="submit" name="search" id="search" value="buscar"/>
-            </div>
-        </div>
-    </form>
-   
-</div>
-
-<div class="container row panel-view">
-    <div class="col-lg-7 panel-left">
-        <div class="">
-            <div class="table-responsive table-wrapper-scroll-y">
-                <table class="table table-hover" id="embarques">
-                    <thead class="thead-light text-white">
-                        <tr class="d-flex small">
-                            <th class="col-1 text-center">#</th>
-                            <th class="col-3 text-left">N° PackingList</th>
-                            <th class="col-2 text-left">Fecha Embarque</th>
-                            <th class="col-2 text-left">Fecha Arribo</th>
-                            <th class="col-2 text-center">Cantidad</th>
-                            <th class="col-2 text-center">Carpeta</th>
-                        </tr>
-                    </thead>
-                    <tbody id="embarques-body"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-5 panel-rigth">
-        <div class="">
-            <div class="table-responsive table-wrapper-scroll-y">
-                <table class="table table-hover" id="instrucciones-documentos">
-                    <thead class="thead-light text-white">
-                        <tr class="d-flex small">
-                            <th class="col-1 text-center">#</th>
-                            <th class="col-3 text-center">Documento</th>
-                            <th class="col-3 left-center">Tipo Documento</th>
-                            <th class="col-3 left-center">Nombre Archivo</th>
-                            <th class="col-2 left-center">Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="instrucciones-documentos-body"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>*@
 @section scripts {
 
     <script src="~/Scripts/index.js"></script>
@@ -157,15 +132,14 @@
     <script type="text/javascript">
         $(document).ready(($) => {
             //Icons Server Local
-            var WordIcon = "@Url.Content("~/Medias/Ico/Word.ico")";
-            var ExcelIcon = "@Url.Content("~/Medias/Ico/Excel.ico")";
-            var PowerPointIcon = "@Url.Content("~/Medias/Ico/PowerPoint.ico")";
-            var PDFIcon = "@Url.Content("~/Medias/Ico/PDF.ico")";
-            var TxtIcon = "@Url.Content("~/Medias/Ico/Bloc.ico")";
-            var WinRarIcon = "@Url.Content("~/Medias/Ico/WinRar.ico")";
-            var folderIcon = "@Url.Content("~/Medias/Ico/Folder.ico")";
-
-            //Date Default 
+            var WordIcon = "@Url.Content("~/Medias/images/ico/Word.ico")";
+            var ExcelIcon = "@Url.Content("~/Medias/images/ico/Excel.ico")";
+            var PowerPointIcon = "@Url.Content("~/Medias/images/ico/PowerPoint.ico")";
+            var PDFIcon = "@Url.Content("~/Medias/images/ico/PDF.ico")";
+            var TxtIcon = "@Url.Content("~/Medias/images/ico/Bloc.ico")";
+            var WinRarIcon = "@Url.Content("~/Medias/images/ico/WinRar.ico")";
+            var EmbarkIcon = "@Url.Content("~/Medias/images/jpg/Embark-1.jpg")";
+            //Date Default
             var today = new Date();
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
@@ -203,13 +177,14 @@
             //Click Buscar
             $("#form-search").submit(e => {
                 e.preventDefault();
+                //Get Value
                 let sd = $(`#start-date`).val();
                 let ed = $(`#end-date`).val();
                 let IdCampana = $(`#bell`).val();
                 let IdSucursal = "002";
-                let Cliente = $(`#broker`).val();
-                let NroPackingList = $(`#numberPackingList`).val();
-
+                let Cliente = "";
+                let NroPackingList = $(`#nro-packing-list`).val();
+                //Value to JSON
                 let data = JSON.stringify({
                     FechaInicio: sd,
                     FechaFinal: ed,
@@ -218,8 +193,8 @@
                     Cliente: Cliente,
                     NroPackingList: NroPackingList
                 })
-
-                axios.get(`${URLSERVER}/SCEEmbarque/`, {
+                //Get - Data
+                axios.get(`${URLSERVER}/SCEEmbarque/Index`, {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
@@ -234,26 +209,63 @@
                     }
                 })
                 .then(response => {
-
+                    
                     if (response.data.length > 0) {
-                        $(`#embarques-body`).empty();
+                        $(`#embark-body`).empty();
+                        $(`#embark-details`).empty();
                         response.data.map((item, index) => {
+
                             let fechaEmbarque = formatDateTimeCSharpToJavascript(item.FechaEmbarque).split("T")[0];
                             let fechaArribo = formatDateTimeCSharpToJavascript(item.FechaArribo).split("T")[0];
                             let tr = $(`
-                            <tr class="d-flex small" id="${item.NroPackingList}">
-                                <td class="col-1 text-center"> ${index + 1}</td>
-                                <td class="col-3 text-left">${item.NroPackingList}</td>
-                                <td class="col-2 text-left">${fechaEmbarque}</td>
-                                <td class="col-2 text-left">${fechaArribo}</td>
-                                <td class="col-2 text-center">${item.Cantidad}</td>
-                                <td class="col-2 text-center">
-                                    <figure class="container">
-                                        <img src="${folderIcon}" width="35" height="35" />
-                                    </figure>
-                                </td>
-                            </tr>`);
+                                <tr class="d-flex small text-hover" id="${item.NroPackingList}">
+                                    <td class="col-2 text-center">${index + 1}</td>
+                                    <td class="col-6 text-left">${item.NroPackingList}</td>
+                                    <td class="col-4 text-center">
+                                        <a class="icon-eye2 font-weight-bold" data-toggle="modal" data-target="#modal-${index+1}">
 
+                                        </a>
+                                    </td>
+                                </tr>`);
+
+                            let li = $(`
+                                <li class="modal fade" id="modal-${index+1}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header d-flex justify-content-center align-content-center bg-dark-green border-bottom border-secondary">
+                                                <h5 class="modal-title text-center text-white text-shadow-black" id="exampleModalLongTitle">
+                                                    N° PackingList: ${item.NroPackingList}
+                                                </h5>
+                                            </div>
+                                            <div class="modal-body border-bottom border-secondary">
+                                                <div class="embark d-flex justify-content-between align-items-center">
+                                                    <figure class="embark-avatar border-right border-secondary">
+                                                        <img src="${EmbarkIcon}" />
+                                                    </figure>
+                                                    <ul class="embark-detail">
+                                                        <li>
+                                                            <p class="font-weight-bold"><span class="icon-calendar1"></span><span class="px-2">Fecha de Embarque:</span></p>
+                                                            <p class="text-black">${fechaEmbarque}</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="font-weight-bold"><span class="icon-calendar1"></span><span class="px-2">Fecha de Arribo:</span></p>
+                                                            <p class="text-black">${fechaArribo}</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="font-weight-bold"> <span class="icon-database1"></span><span class="px-2">Cantidad:</span></p>
+                                                            <p class="text-black">${item.Cantidad}</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger box-shadow-black" data-dismiss="modal">Salir de la vista detalle</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            `);
+                            $(`#embark-details`).append(li);
 
                             tr.bind("click", (e) => {
                                 let NroPackingList = $(e.target).parent().attr("id");
@@ -262,7 +274,7 @@
                                 });
 
                                 //Get Documents
-                                axios.get(`${URLSERVER}/SCEInstruccionDocumento/GetByNroPackingList/`, {
+                                axios.get(`${URLSERVER}/SCEInstruccionDocumento/GetByNroPackingList`, {
                                     headers: {
                                         'Accept': 'application/json',
                                         'Content-Type': 'application/json',
@@ -272,10 +284,8 @@
                                     }
                                 })
                                 .then(response => {
-
-                                    $(`#instrucciones-documentos-body`).empty();
+                                    $(`#embark-documents-body`).empty();
                                     if (response.data.length > 0) {
-
                                         response.data.map((item, index) => {
                                             let extension = item.NombreArchivo.split(".").pop();
 
@@ -300,22 +310,29 @@
                                                 icon = WinRarIcon;
                                             }
                                             let tr = $(`
-                                            <tr class="d-flex small" id="${item.IdDocumento}">
-                                                <td class="col-1 text-center">${index+1}</td>
-                                                <td class="col-3 text-center">
-                                                    <figure class="container">
-                                                        <img src="${icon}" width="35" height="35" />
-                                                    </figure>
-                                                </td>
-                                                <td class="col-3 text-left">${item.SCETipoDocumento.Descripcion}</td>
-                                                <td class="col-3 text-left" id="file-name" >${item.NombreArchivo}</td>
-                                                <td class="col-2 text-left"> <a href="#" id="${item.SCEArchivo.IdArchivo}">Descargar</a> </td>
-                                            </tr>`);
+                                                <tr class="d-flex small text-hover" id="${item.IdDocumento}">
+                                                    <td class="col-1 text-center">${index + 1}</td>
+                                                    <td class="col-4 text-left d-flex align-items-center"  id="file-name">
+                                                        <img src="${icon}" width="19" height="19" />
+                                                        <p class="text-left px-2">
+                                                            ${item.NombreArchivo}
+                                                        </p>
+                                                    </td>
+                                                    <td class="col-4 text-left">${item.SCETipoDocumento.Descripcion}</td>
+                                                    <td class="col-1 text-left">${item.Tamano}</td>
+                                                    <td class="col-2 text-center">
+                                                        <a class="icon-download2 font-weight-bold" id="${item.SCEArchivo.IdArchivo}">
+                                                         
+                                                        </a>
+                                                    </td>
+                                                </tr>`);
                                             //Download File
                                             tr.children("td").children("a").bind("click", (e) => {
-                                                event.preventDefault();
+                                                e.preventDefault();
+   
+                                                let IdArchivo = e.target.id;
                                                 let data = JSON.stringify({
-                                                    IdArchivo: e.target.id
+                                                    IdArchivo: IdArchivo
                                                 });
 
                                                 axios.get(`${URLSERVER}/SCEArchivo/GetById`, {
@@ -328,27 +345,22 @@
                                                     }
                                                 })
                                                 .then(response => {
-                                                    let filename = $(e.target).parent().parent().children("#file-name").text().trim();
+                                                    let filename = $(e.target).parent().parent().children("#file-name").children("p").text().trim();
                                                     let byteArray = new Uint8Array(response.data.DocumentoData);
                                                     let a = window.document.createElement('a');
                                                     a.href = URL.createObjectURL(new Blob([byteArray], { type: 'application/octet-stream' }));
-                                    
+
                                                     a.download = filename;
                                                     document.body.appendChild(a)
                                                     a.click();
                                                     // Remove anchor from body
                                                     document.body.removeChild(a)
-
-                                                    //let iFrame = document.createElement('iframe');             
-                                                    //iFrame.setAttribute('src', `https://drive.google.com/viewerng/viewer?url=${a.href}&embedded=true`);
-                                                    //iFrame.setAttribute('style', 'width:500px; height:700px;');
-                                                    //$(`#view-document`).append(iFrame);
                                                 })
                                                 .catch(error => {
                                                     console.log(error);
                                                 });
                                             })
-                                            $("#instrucciones-documentos-body").append(tr);
+                                            $(`#embark-documents-body`).append(tr);
                                         })
 
                                     }
@@ -360,8 +372,7 @@
                                     console.log(error);
                                 });
                             });
-
-                            $(`#embarques-body`).append(tr);
+                            $(`#embark-body`).append(tr);
                         })
                     }
                     else {
@@ -372,103 +383,6 @@
                     console.log(error);
                 });
             });
-
-
-            function download(text, name, type) {
-                var a = document.getElementById("a");
-                var file = new Blob([text], { type: type });
-                a.href = URL.createObjectURL(file);
-                a.download = name;
-            }
-            ////Click Embarque Nro PackingList
-            //$(`#${nroPackingList}`).click((e) => {
-
-            //    let data = JSON.stringify({
-            //        NroPackingList: "CRZ--UVA-001/2017"
-            //    })
-
-            //    axios.get(`${URL}/SCEInstruccionDocumento/GetByNroPackingList`, {
-            //        headers: {
-            //            'Accept': 'application/json',
-            //            'Content-Type': 'application/json',
-            //        },
-            //        params: {
-            //            NroPackingList: JSON.parse(data).NroPackingList,
-            //        }
-            //    })
-            //    .then(response => {
-            //        $("#instrucciones-documentos-body").empty();
-
-            //        response.data.map((item, index) => {
-            //            let extension = item.NombreArchivo.split(".").pop();
-            //            let icon = null;
-            //            if (extension === "docx" || extension === "doc") {
-            //                icon = WordIcon;
-            //            }
-            //            else if (extension === "xlsx" || extension === "xls") {
-            //                icon = ExcelIcon;
-            //            }
-            //            else if (extension === "pptx" || extension === "ppt") {
-            //                icon = PowerPointIcon;
-            //            }
-            //            else if (extension === "pdf") {
-            //                icon = PDFIcon;
-            //            }
-            //            else if (extension === "txt") {
-            //                icon = TxtIcon;
-            //            }
-            //            else if (extension === "rar") {
-            //                icon = WinRarIcon;
-            //            }
-
-            //            const tr = $(`
-            //                <tr class="d-flex" id="${item.IdDocumento}">
-            //                    <td class="col-1 text-center">2</td>
-            //                    <td class="col-3 text-center">
-            //                        <figure class="container">
-            //                            <img src="${icon}" width="35" height="35" />
-            //                        </figure>
-            //                    </td>
-            //                    <td class="col-3 text-left">${item.SCETipoDocumento.Descripcion}</td>
-            //                    <td class="col-3 text-left">${item.NombreArchivo}</td>
-            //                    <td class="col-2 text-left"> <a href="#" id="${item.SCEArchivo.IdArchivo}">Descargar</a> </td>
-            //                </tr>
-            //            `);
-            //            tr.children("td").children("a").bind("click", (event) => {
-            //                event.preventDefault();
-            //                let data = JSON.stringify({
-            //                    IdArchivo: event.target.id
-            //                });
-            //                axios.get(`${URL}/SCEArchivo/GetById`, {
-            //                    headers: {
-            //                        'Accept': 'application/json',
-            //                        'Content-Type': 'application/json',
-            //                    },
-            //                    params: {
-            //                        IdArchivo: JSON.parse(data).IdArchivo
-            //                    }
-            //                })
-            //                .then(response => {
-
-            //                    let byteArray = new Uint8Array(response.data.DocumentoData);
-            //                    let a = window.document.createElement('a');
-            //                    a.href = window.URL.createObjectURL(new Blob([byteArray], { type: 'application/octet-stream' }));
-            //                    a.download = item.NombreArchivo;
-            //                    document.body.appendChild(a)
-            //                    a.click();
-            //                    // Remove anchor from body
-            //                    document.body.removeChild(a)
-            //                })
-            //            });
-            //            $("#instrucciones-documentos-body").append(tr);
-            //        });
-            //    })
-            //    .catch(error => {
-            //        console.log(error);
-            //    });
-            //});
-
-
         });
     </script>
 }

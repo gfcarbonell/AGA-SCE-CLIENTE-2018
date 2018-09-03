@@ -1,26 +1,59 @@
+.bg-url-1 
+    background-image linear-gradient(90deg,#1c3643,#1e5372)
+    background-image url(http://www.forocio.com/wp-content/uploads/2013/01/uvas.jpg)
+    background-size cover
+    background-position 50%
+.bg-url-2
+    background-image linear-gradient(90deg,#1c3643,#1e5372)
+    background-image url(http://menorcaaldia.com/wp-content/uploads/2018/09/grapes-2656259_1280-1024x682.jpg)
+    background-size cover
+    background-position 50%
+.bg-yellow 
+    background #ffc200
 .bg-light-green 
     background #7cb342
 .bg-dark-green 
     background #689f38
+.bg-dark-gradient 
+    background linear-gradient(90deg,#1c3643,#1e5372)
 .bg-ligh-gray 
     background #f8f8f9
+.bg-light-black 
+    background rgba(black, .3)
+.bg-ligh-yellow 
+    background rgba(#ffc200, .1)
 .box-shadow-white
-    box-shadow 1px 1px 6px white
+    box-shadow 1px 1px 5px white
 .box-shadow-black
-    box-shadow 1px 1px 6px black
+    box-shadow 1px 1px 5px black
 .carousel-item 
     >img 
         height 79vh
+.sub-title 
+    font-size 1.1em
 .title 
     font-size 1.5em
-
 .text-shadow-black
     text-shadow 1px 1px 6px black
-
+.text-hover 
+    transition .3s 
+    &:hover 
+        color #0a8ecd 
 .table td, .table th{
     padding .3em 0
     border 0
 }
+
+.welcome-red  
+    padding  1em 0 0 0
+    .welcome-underline 
+        border-bottom 2px solid #dc3545
+    .welcome-sub-underline 
+        margin  .5em 0 0 0
+        width 45% 
+        height 6px 
+        background #dc3545
+        border-radius 0 .5em 0 0
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
@@ -34,8 +67,33 @@
   padding-right: 0;
   padding-left: 0;
 }
+.row{
+    padding 0
+    margin 0
+}
+
+.table-fixed thead {
+  width: 100%;
+}
+.table-fixed tbody {
+  height: 500px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
 
 
 @media (min-width: 576px)
     .title 
         font-size 2.7em
+    .sub-title 
+        font-size 2em
+@media (min-width: 992px) 
+    .welcome-red  
+        padding  1em 0 1em 0
